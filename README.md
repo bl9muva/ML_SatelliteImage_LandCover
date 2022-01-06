@@ -57,24 +57,24 @@ as USGS EarchExplorer https://earthexplorer.usgs.gov/.
 Although landsat8 contains time-series images, I decided to only work on images that were taken on a particular time
 point since the shear size of all satellite images is overwhelming. There are also additional considerations of image
 qualities, for example, the presence of cloud as well as seasonal changes can effect the land use classification. The
-dataset used in our paper was acquired on 07/20/2019 by landset 8 OLI/TIRS (OperationalLand Imager / Thermal
+dataset used in this project was acquired on 07/20/2019 by landset 8 OLI/TIRS (OperationalLand Imager / Thermal
 Infrared Sensor) C2 L1, path 014 and row 034. This dataset has a total of 11 bands, in which bands 2, 3, 4 are blue,
-green, and red channels at 30m resolutions, respectively. To aid our model training, I used a third-party program
+green, and red channels at 30m resolutions, respectively. To aid the model training, I used a third-party program
 ‘Spectral Discovery for Landsat-8’ to merge these three RGB bands together and obtained a 15m colored satellite
 images of Virginia coast.
 
 This satellite image was further sliced into two separate images, one for model training and validation, and the other for
 testing and demo purposes.
 
-Since CNN is a supervised learning, I decided to provide labels for our training and validation data by our own
-visual inspections. Due to limitations imposed by manual labor as well as the resolution of the satellite image, we
+Since CNN is a supervised learning, I decided to provide labels for our training and validation data by my own
+visual inspections. Due to limitations imposed by manual labor as well as the resolution of the satellite image, I
 split our training/validation data into a 30x50 rectangle grids, and labeled all 1500 rectangles into one of 10 categories:
 airport, commercial, farmland, forest, lake, marsh, ocean, residential, seashore, and sound. These labeled figures were
-subsequently employed for our CNN model building.
+subsequently employed for the CNN model building.
 
 ## Results
 To train and test the model, a 80-20 split was employed. For a baselne model, a simple 3 convolution layer CNN was 
-able to achieve an accuracy of 99% on training data, but only 68% on the validation data. Clearly, we encountered an 
+able to achieve an accuracy of 99% on training data, but only 68% on the validation data. Clearly, I encountered an 
 overfitting problem.
 
 To improve the accuracy on the validation data, I decided to use a pre-trained Imagenet model which are included
@@ -86,7 +86,7 @@ and a two dense layers. The dense layers contain 200 and 170 units. Overall, I f
 good compromise between effectiveness and calculation time.
 
 I started out with a learning rate of 0.01 and observed the accuracy while training the model. It turned out to be
-overfitting after only a few epochs since test accuracy remained at about 60%. The next step was to lower the learning
+overfitting after only a few epochs since test accuracy stalled at about 60%. The next step was to lower the learning
 rate to 0.0001 and introduced a dropout layer between the two dense layers with an aggressive rate of 0.4. This improved
 the results to a test accuracy of around 80%.
 
@@ -103,7 +103,7 @@ appeared to be too much fragmented. Clearly, image resolution is a tunable featu
 advantageously with some caution.
 
 ## Discussion
-This classification problem is unique in that each satellite fragment may be compromised of several objects. For example,
+This classification problem is unique in that each satellite fragment may be composed of several objects. For example,
 a satellite image of an ocean front community may contain two labels, residential and water. For these observations,
 the label with the highest surface area of the image was chosen. I noted an increase of 4% in test accuracy when
 additional data augmentation were included. This technique may have been especially beneficial by segmenting
@@ -112,8 +112,8 @@ significant gains in accuracy, and to overcome the overfitting.
 
 Additionally, for this problem, the dataset contained approximately 1500 satellite images of Virginia Coast. I would
 like to acknowledge that additional training data would be beneficial to generate a more optimal algorithm, but due to
-the labor-intensive task of generate labels, this would be out of scope for this project. Overall, the algorithm developed
-provides promising results into the use of transfer learning into land use classification.
+the labor-intensive task of generating labels, this would be out of scope for this project. Overall, the algorithm developed
+provides promising results into the use of transfer learning into land cover classification.
 
 I also recognize that there are a number of shortcomings in these labels: 1. these categories may not conform to
 conventions by domain experts; 2. many of images contain multiple features and their labels can be ambivalent, 3. I
@@ -124,5 +124,4 @@ on satellite images, they may also have hampered us to achieve a higher accuracy
 This project is accomplished using the Colab, a product from Google Research. 
 
 If anyone is interested in the original satellite image as well as my manually labeled 1500 images for running this
-notebook, please drop me a message. 
-please
+notebook, or if you have any questions about this project, please drop me a message: binyong@gmal.com. 
