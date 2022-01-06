@@ -124,4 +124,4 @@ on satellite images, they may also have hampered us to achieve a higher accuracy
 This project is accomplished using the Colab, a product from Google Research. 
 
 If anyone is interested in the original satellite image as well as my manually labeled 1500 images for running this
-notebook, or if you have any questions about this project, please drop me a message: binyong@gmal.com. 
+notebook, or if you have any questions about this project, please drop me a message: binyong@gmail.com. 
