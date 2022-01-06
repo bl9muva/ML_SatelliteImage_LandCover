@@ -45,7 +45,7 @@ or commercial properties.
 I propose that satellite images are true reflections of land use, which in turn are closely related to habitation and
 population changes in the area. In order to aid the effort of the Virginia Coastal Resilience Planning, land use
 classifications from satellite images can offer direct evidence for appropriate direction of coastal flood protection and
-adaptation. In addition, in a dire scenario of disaster rescue mission, our land use model and its relation to population
+adaptation. In addition, in a dire scenario of disaster rescue mission, the land use model and its relation to population
 distribution can offer proper allocation of rescue resources for humans and properties.
 
 ## Data
